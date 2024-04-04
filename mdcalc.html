@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Medical Calculator</h2>
+        <form id="calculator-form">
+            
+            <label for="value1">Disease outside CNS under control:</label>
+            <select id="value1" name="value1" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <!-- <input type="text" id="value1" name="value1" required><br> -->
+
+            <label for="value2">Mutational status primary tumour:</label>
+            <select id="value1" name="value1" required>
+                <option value="">Select</option>
+                <option value="Yes">EGFR</option>
+                <option value="No">ALK</option>
+                <option value="No">Other</option>
+                <option value="No">KRAS</option>
+            </select><br>
+            <!-- <input type="text" id="value2" name="value2" required><br> -->
+
+            <label for="value3">Performance status:</label>
+            <input type="text" id="value3" name="value3" required><br>
+
+            <label for="value4">Age:</label>
+            <input type="number" id="value4" name="value4" required><br>
+
+            <label for="value5">log(Volume of the first treated SRS):</label>
+            <input type="text" id="value5" name="value5" required><br>
+
+            <label for="value6">Extracranial disease:</label>
+            <select id="value6" name="value6" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <!-- <input type="text" id="value6" name="value6" required><br> -->
+
+            <label for="value7">CNS metastasis at primary tumour:</label>
+            <select id="value7" name="value7" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <!-- <input type="text" id="value7" name="value7" required><br> -->
+
+            <label for="value8">Lungadenocarcinoma:</label>
+            <select id="value8" name="value8" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <!-- <input type="text" id="value8" name="value8" required><br> -->
+
+            <label for="value9">Symptomatic CNS disease:</label>
+            <select id="value9" name="value9" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <!-- <input type="text" id="value9" name="value9" required><br> -->
+
+
+            <!-- Add more input fields as needed -->
+
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('calculator-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            calculateResult();
+        });
+
+        function calculateResult() {
+            var oneYearSurvivalProbability = 0.385
+
+            // var value1 = parseFloat(document.getElementById('value1').value);
+            // var value2 = parseFloat(document.getElementById('value2').value);
+            // var value3 = parseFloat(document.getElementById('value3').value);
+            // var value4 = parseFloat(document.getElementById('value4').value);
+            // var value5 = parseFloat(document.getElementById('value5').value);
+            // var value6 = parseFloat(document.getElementById('value6').value);
+            // var value7 = parseFloat(document.getElementById('value7').value);
+            // var value8 = parseFloat(document.getElementById('value8').value);
+            // var value9 = parseFloat(document.getElementById('value9').value);
+
+
+            // Perform calculations here based on the input values
+            var result = Math.pow(oneYearSurvivalProbability, Math.exp(
+                - 0.472 * (0 - 0.399) // Disease outside CNS under control
+                - 0.351 * (1 - 0.093) // EGFR
+                - 0.830 * (0 - 0.054) // ALK
+                - 0.130 * (0 - 0.037) // Other
+                - 0.208 * (1 - 0.108) // KRAS
+                + 0.582 * (1 - 0.115) // Performance status
+                + 0.015 * (1 - 66.94) // Age
+                + 0.073 * (1 - 0.782) // log(Volume of the first treated SRS)
+                + 0.486 * (1 - 0.819) // Extracranial disease
+                - 0.235 * (1 - 0.511) // CNS metastasis at primary tumour
+                - 0.217 * (1 - 0.741) // Lungadenocarcinoma
+                + 0.261 * (1 - 0.848) // Symptomatic CNS disease
+                )
+            );
+
+            document.getElementById('result').innerHTML = "Result: " + result;
+        }
+    </script>
+</body>
+</html>
