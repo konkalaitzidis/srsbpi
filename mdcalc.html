@@ -67,22 +67,24 @@
                 <option value="No">No</option>
             </select><br>
 
-            <label for="value2">Mutational status primary tumour:</label>
+            <label for="value2">Genetic alterations:</label>
             <select id="value2" name="value2" required>
                 <option value="">Select</option>
                 <option value="EGFR">EGFR</option>
                 <option value="ALK">ALK</option>
-                <option value="Other">Other</option>
                 <option value="KRAS">KRAS</option>
+                <option value="Other">Other alterations</option>
+                <!-- what if he clicks no alterations? What is the weight of this option -->
+                <option value="no-alteration">No alterations</option>
             </select><br>
 
-            <label for="value3">Performance status:</label>
+            <label for="value3">Performance status (ECOG-PS):</label>
             <input type="text" id="value3" name="value3" required><br>
 
             <label for="value4">Age:</label>
             <input type="number" id="value4" name="value4" required><br>
 
-            <label for="value5">log(Volume of the first treated SRS):</label>
+            <label for="value5">Log (Total BM volume during the initial SRS):</label>
             <input type="text" id="value5" name="value5" required><br>
 
             <label for="value6">Extracranial disease:</label>
@@ -92,14 +94,14 @@
                 <option value="No">No</option>
             </select><br>
 
-            <label for="value7">CNS metastasis at primary tumour:</label>
+            <label for="value7">BM at diagnosis of primary tumour:</label>
             <select id="value7" name="value7" required>
                 <option value="">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select><br>
 
-            <label for="value8">Lungadenocarcinoma:</label>
+            <label for="value8">Lung adenocarcinoma:</label>
             <select id="value8" name="value8" required>
                 <option value="">Select</option>
                 <option value="Yes">Yes</option>
@@ -121,25 +123,37 @@
 
     <script>
         function calculateResult() {
-            var oneYearSurvivalProbability = 0.399;
-
+            var oneYearSurvivalProbability = 0.387;
+    
             var result = Math.pow(oneYearSurvivalProbability, Math.exp(
-                - 0.484 * (document.getElementById('value1').value === 'Yes' ? 0 : 1 - 0.399) // Disease outside CNS under control
+                - 0.484 * (document.getElementById('value1').value === 'Yes' ? 1 : 0 - 0.399) // Disease outside CNS under control
                 - 0.363 * (document.getElementById('value2').value === 'EGFR' ? 0 : 1 - 0.093) // Mutational status primary tumour
                 - 0.871 * (document.getElementById('value2').value === 'ALK' ? 0 : 1 - 0.054) // Mutational status primary tumour
-                - 0.131 * (document.getElementById('value2').value === 'Other' ? 0 : 1 - 0.037) // Mutational status primary tumour
                 - 0.210 * (document.getElementById('value2').value === 'KRAS' ? 0 : 1 - 0.108) // Mutational status primary tumour
+                - 0.131 * (document.getElementById('value2').value === 'Other' ? 0 : 1 - 0.037) // Mutational status primary tumour
                 + 0.596 * (1 - 0.115) // Performance status
                 + 0.015 * (1 - parseFloat(document.getElementById('value4').value) / 66.94) // Age
                 + 0.075 * (1 - 0.782) // log(Volume of the first treated SRS)
-                + 0.508 * (document.getElementById('value6').value === 'Yes' ? 0 : 1 - 0.819) // Extracranial disease
-                - 0.235 * (document.getElementById('value7').value === 'Yes' ? 0 : 1 - 0.511) // CNS metastasis at primary tumour
-                - 0.219 * (document.getElementById('value8').value === 'Yes' ? 0 : 1 - 0.741) // Lungadenocarcinoma
-                + 0.265 * (document.getElementById('value9').value === 'Yes' ? 0 : 1 - 0.848) // Symptomatic CNS disease
+                + 0.508 * (document.getElementById('value6').value === 'Yes' ? 1 : 0 - 0.819) // Extracranial disease
+                - 0.252 * (document.getElementById('value7').value === 'Yes' ? 1 : 0 - 0.511) // CNS metastasis at primary tumour
+                - 0.219 * (document.getElementById('value8').value === 'Yes' ? 1 : 0 - 0.741) // Lungadenocarcinoma
+                + 0.265 * (document.getElementById('value9').value === 'Yes' ? 1 : 0 - 0.848) // Symptomatic CNS disease
             ));
 
-            document.getElementById('result').innerHTML = "Result: " + result;
+            // var s1 = Math.pow(0.387, Math.exp(
+            //     -0.484 * (0 - 0.399)
+            //     - 0.363 * (1 - 0.093)
+            //     - 0.871 * (0 - 0.054)
+            //     // Add the remaining terms similarly
+            //     + 0.265 * (1 - 0.848)
+            // ));
+    
+            // Convert the result to percentage format
+            result *= 100;
+    
+            document.getElementById('result').innerHTML = "Result: " + result.toFixed(1) + "%";
         }
     </script>
+    
 </body>
 </html>
