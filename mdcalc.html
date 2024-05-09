@@ -124,16 +124,27 @@
     <script>
         function calculateResult() {
             var oneYearSurvivalProbability = 0.387;
+
+            // - 0.484 * (0 - 0.399) 
+            // - 0.363 * (1 - 0.093) 
+            // - 0.596 * (2 - 0.115) 
+            // - 0.015 * (65 - 66.94) 
+            // + 0.075 * (1 - 0.782) 
+            // - 0.508 * (0 - 0.819)
+            // - 0.252 * (1 - 0.511)
+            // - 0.219 * (1 - 0.741)
+            // - 0.265 * (1 - 0.848)
     
-            var result = Math.pow(oneYearSurvivalProbability, Math.exp(
+            var s1 = Math.pow(oneYearSurvivalProbability, Math.exp(
                 - 0.484 * (document.getElementById('value1').value === 'Yes' ? 1 : 0 - 0.399) // Disease outside CNS under control
-                - 0.363 * (document.getElementById('value2').value === 'EGFR' ? 0 : 1 - 0.093) // Mutational status primary tumour
-                - 0.871 * (document.getElementById('value2').value === 'ALK' ? 0 : 1 - 0.054) // Mutational status primary tumour
-                - 0.210 * (document.getElementById('value2').value === 'KRAS' ? 0 : 1 - 0.108) // Mutational status primary tumour
-                - 0.131 * (document.getElementById('value2').value === 'Other' ? 0 : 1 - 0.037) // Mutational status primary tumour
-                + 0.596 * (1 - 0.115) // Performance status
-                + 0.015 * (1 - parseFloat(document.getElementById('value4').value) / 66.94) // Age
-                + 0.075 * (1 - 0.782) // log(Volume of the first treated SRS)
+                - 0.363 * (document.getElementById('value2').value === 'EGFR' ? 1 : 0 - 0.093) // Mutational status primary tumour
+                - 0.871 * (document.getElementById('value2').value === 'ALK' ? 1 : 0 - 0.054) // Mutational status primary tumour
+                - 0.210 * (document.getElementById('value2').value === 'KRAS' ? 1 : 0 - 0.108) // Mutational status primary tumour
+                - 0.131 * (document.getElementById('value2').value === 'Other' ? 1 : 0 - 0.037) // Mutational status primary tumour
+                + 0.596 * (document.getElementById('value3').value === '2' ? 0 : 1 - 0.115) // Performance status / vazw 0 h 1 an einai panw apo 2. Poio einai to range twn timwn toy
+                // + 0.015 * (parseFloat(document.getElementById('value4').value) - 66.94) // Age / pws ypologizetai?
+                + 0.015 * (1 - parseFloat(document.getElementById('value4').value) / 66.94)
+                + 0.075 * (parseFloat(document.getElementById('value5').value) - 0.782) // log(Volume of the first treated SRS)
                 + 0.508 * (document.getElementById('value6').value === 'Yes' ? 1 : 0 - 0.819) // Extracranial disease
                 - 0.252 * (document.getElementById('value7').value === 'Yes' ? 1 : 0 - 0.511) // CNS metastasis at primary tumour
                 - 0.219 * (document.getElementById('value8').value === 'Yes' ? 1 : 0 - 0.741) // Lungadenocarcinoma
@@ -149,9 +160,9 @@
             // ));
     
             // Convert the result to percentage format
-            result *= 100;
+            s1 *= 100;
     
-            document.getElementById('result').innerHTML = "Result: " + result.toFixed(1) + "%";
+            document.getElementById('result').innerHTML = "Result: " + s1.toFixed(1) + "%";
         }
     </script>
     
