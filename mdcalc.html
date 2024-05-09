@@ -133,7 +133,8 @@
                 - 0.131 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.037) // Mutational status primary tumour
                 + 0.596 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.115)
                 + 0.015 * ((parseFloat(document.getElementById('value4').value) - 66.94)) // Age / pws ypologizetai?
-                + 0.075 * (-1 - 0.782) // log(Volume of the first treated SRS)
+                // + 0.075 * ((Math.log(Math.abs(parseFloat(document.getElementById('value5').value)))) - 0.782) // log(Volume of the first treated SRS)
+                + 0.075 * ((parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
                 + 0.508 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.819) // Extracranial disease
                 - 0.252 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.511) // CNS metastasis at primary tumour
                 - 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
