@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 135vh;
+            height: auto;
         }
         .container {
             max-width: 500px;
@@ -26,7 +26,7 @@
         h1 {
             text-align: center;
             margin-bottom: 50px;
-            color: #007bff;
+            color: #810562d3;
         }
         label {
             font-weight: bold;
@@ -42,7 +42,7 @@
         }
         button {
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #810562d3;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -51,7 +51,7 @@
             display: block;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #810562d3;
         }
         #result {
             margin-top: 20px;
@@ -61,10 +61,36 @@
             text-align: center;
             font-size: 18px;
         }
+
+        .navbar {
+            background-color: #810562d3;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #810562;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Supplementary Material</a>
+        </div>
+
         <h1 class="h1">Stereotactic Radiosurgery-Brain Prognostic Index (SRS-BPI)</h1>
         <form id="calculator-form">
         
@@ -127,7 +153,19 @@
 
         </form>
         <div id="result"></div>
+
+            <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Simon Ekman's research group.</p>
+            <p>Website author: Kostas Kalaitzidis.</p>
+            <p>Contact: kon.kalaitzidis@gmail.com.</p>
+            <p>Website licensed under <a href="#">Creative Commons Attribution 4.0 International License</a>.</p>
+            <p>Reference: <a href="#">Link to the paper</a></p>
+        </footer>
+
     </div>
+
+
 
     <script>
         function calculateResult() {
