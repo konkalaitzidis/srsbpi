@@ -63,38 +63,43 @@
         }
 
         .navbar {
-            background-color: #810562d3;
+            background-color: #ffffffd3;
             overflow: hidden;
         }
 
         .navbar a {
-            float: left;
+            float: right;
             display: block;
-            color: white;
+            color: #810562d3;
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
         }
 
         .navbar a:hover {
-            background-color: #810562;
+            background-color: #e7e7e7;
         }
     </style>
 </head>
 <body>
 
+    <!-- TODO: mobile friendly -->
+
     <div class="container">
 
+        <!-- TODO: create the Navbar -->
         <!-- Navbar -->
         <div class="navbar">
-            <a href="#">Home</a>
-            <a href="#">Supplementary Material</a>
+            <!-- <a href="index.html">Home</a> -->
+            <a href="supp-material.html">Supplementary Material</a>
         </div>
 
+        <!-- Calculator container -->
         <h1 class="h1">Stereotactic Radiosurgery-Brain Prognostic Index (SRS-BPI)</h1>
         <form id="calculator-form">
-        
 
+            <!-- TODO: Add content within the fields for correct input -->
+        
             <label for="value1">Disease outside CNS under control:</label>
             <select id="value1" name="value1" required>
                 <option value="">Select</option>
@@ -150,17 +155,19 @@
             </select>
 
             <button type="button" onclick="calculateResult()">Calculate</button>
+            <div id="result"></div>
 
         </form>
-        <div id="result"></div>
-
-            <!-- Footer Section -->
+        
+        
+        <!-- TODO: fix footer -->
+        <!-- Footer Section -->
         <footer>
-            <p>&copy; 2024 Simon Ekman's research group.</p>
-            <p>Website author: Kostas Kalaitzidis.</p>
-            <p>Contact: kon.kalaitzidis@gmail.com.</p>
-            <p>Website licensed under <a href="#">Creative Commons Attribution 4.0 International License</a>.</p>
-            <p>Reference: <a href="#">Link to the paper</a></p>
+            <p>&copy; 2024 Simon Ekman's research group. The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>            
+            <!-- <p>Website author: Kostas Kalaitzidis.</p>
+            <p>Contact: kon.kalaitzidis@gmail.com.</p> -->
+            <!-- <p>Website licensed under <a href="#">Creative Commons Attribution 4.0 International License</a>.</p> -->
+            <!-- <p>Reference: <a href="#">Link to the paper</a></p> -->
         </footer>
 
     </div>
