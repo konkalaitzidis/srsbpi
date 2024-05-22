@@ -20,7 +20,7 @@
             width: 90%;
             background-color: #fff;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 10ax;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1 {
@@ -39,6 +39,7 @@
             margin: 5px 0 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
         button {
             padding: 10px 20px;
@@ -157,13 +158,18 @@
             <button type="button" onclick="calculateResult()">Calculate</button>
             <div id="result"></div>
 
+            <!-- Disclaimer Section -->
+            <div class="disclaimer">
+                Disclaimer: This prognostic score is currently under research and has not yet been published in a peer-reviewed journal. It is provided only for informational purposes.
+            </div>
+
         </form>
         
         
         <!-- TODO: fix footer -->
         <!-- Footer Section -->
         <footer>
-            <p>&copy; 2024 Simon Ekman's research group. The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>            
+            <p>&copy; 2024 Department of Oncology-Pathology, Karolinska Institutet/Thoracic Oncology Center, Karolinska University Hospital, Stockholm, Sweden. The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License.</a> <a>Contact: mdp2011902@med.uoc.gr</a></p>            
             <!-- <p>Website author: Kostas Kalaitzidis.</p>
             <p>Contact: kon.kalaitzidis@gmail.com.</p> -->
             <!-- <p>Website licensed under <a href="#">Creative Commons Attribution 4.0 International License</a>.</p> -->
@@ -182,13 +188,11 @@
                 - 0.484 * ((document.getElementById('value1').value === 'Yes' ? 1 : 0) - 0.399) // Disease outside CNS under control
                 - 0.363 * ((document.getElementById('value2').value === 'EGFR' ? 1 : 0) - 0.093) // Mutational status primary tumour
                 - 0.871 * ((document.getElementById('value2').value === 'ALK' ? 1 : 0) - 0.054) // Mutational status primary tumour
-                - 0.21 * ((document.getElementById('value2').value === 'KRAS' ? 1 : 0) - 0.108) // Mutational status primary tumour
+                - 0.210 * ((document.getElementById('value2').value === 'KRAS' ? 1 : 0) - 0.108) // Mutational status primary tumour
                 - 0.131 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.037) // Mutational status primary tumour
                 + 0.596 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.115)
                 + 0.015 * ((parseFloat(document.getElementById('value4').value) - 66.94)) // Age / pws ypologizetai?
                 + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
-                // + 0.075 * ((Math.log(Math.abs(parseFloat(document.getElementById('value5').value)))) - 0.782) // log(Volume of the first treated SRS)
-                // + 0.075 * ((parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
                 + 0.508 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.819) // Extracranial disease
                 - 0.252 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.511) // CNS metastasis at primary tumour
                 - 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
