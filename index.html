@@ -80,6 +80,35 @@
         .navbar a:hover {
             background-color: #e7e7e7;
         }
+
+        .disclaimer {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #810562d3; /* Match the navbar color */
+            color: #fff; /* White text for contrast */
+            text-align: center;
+            font-size: 14px;
+            border-radius: 0 0 10px 10px; /* Rounded bottom corners to match the container */
+        }
+
+        footer a {
+            color: #ffeeba; /* Light yellow color for links to stand out */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover for better UX */
+        }
     </style>
 </head>
 <body>
@@ -166,14 +195,11 @@
         </form>
         
         
-        <!-- TODO: fix footer -->
         <!-- Footer Section -->
-        <footer>
-            <p>&copy; 2024 Department of Oncology-Pathology, Karolinska Institutet/Thoracic Oncology Center, Karolinska University Hospital, Stockholm, Sweden. The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License.</a> <a>Contact: mdp2011902@med.uoc.gr</a></p>            
-            <!-- <p>Website author: Kostas Kalaitzidis.</p>
-            <p>Contact: kon.kalaitzidis@gmail.com.</p> -->
-            <!-- <p>Website licensed under <a href="#">Creative Commons Attribution 4.0 International License</a>.</p> -->
-            <!-- <p>Reference: <a href="#">Link to the paper</a></p> -->
+        <footer class="footer">
+            <p>&copy; 2024 Department of Oncology-Pathology, Karolinska Institutet/Thoracic Oncology Center, Karolinska University Hospital, Stockholm, Sweden.</p>
+            <p>The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License.</a></p>
+            <p>Contact: <a href="mailto:mdp2011902@med.uoc.gr">mdp2011902@med.uoc.gr</a></p> 
         </footer>
 
     </div>
