@@ -109,19 +109,21 @@
         footer a:hover {
             text-decoration: underline; /* Underline on hover for better UX */
         }
+        .notification {
+            color: rgb(219, 3, 3);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-    <!-- TODO: mobile friendly -->
 
     <div class="container">
 
-        <!-- TODO: create the Navbar -->
         <!-- Navbar -->
         <div class="navbar">
             <!-- <a href="index.html">Home</a> -->
-            <a href="supp-material.html">Supplementary Material</a>
+            <!-- <a href="supp-material.html">Supplementary Material</a> -->
         </div>
 
         <!-- Calculator container -->
@@ -148,13 +150,13 @@
             </select>
 
             <label for="value3">Performance status (ECOG-PS):</label>
-            <input type="text" id="value3" name="value3" required>
+            <input type="text" id="value3" name="value3" placeholder="Input example: 2" required>
 
             <label for="value4">Age:</label>
-            <input type="number" id="value4" name="value4" required>
+            <input type="number" id="value4" name="value4" placeholder="Input example: 65" required>
 
             <label for="value5">Total BM volume during the initial SRS in cm³:</label>
-            <input type="text" id="value5" name="value5" required>
+            <input type="text" id="value5" name="value5" placeholder="Input example: 0.1" required>
 
             <label for="value6">Extracranial disease:</label>
             <select id="value6" name="value6" required>
@@ -184,8 +186,12 @@
                 <option value="No">No</option>
             </select>
 
+            <!-- Handling invalid input -->
+
             <button type="button" onclick="calculateResult()">Calculate</button>
             <div id="result"></div>
+            <!-- <div id="result" class="notification"></div> -->
+
 
             <!-- Disclaimer Section -->
             <div class="disclaimer">
@@ -203,7 +209,6 @@
         </footer>
 
     </div>
-
 
 
     <script>
@@ -225,9 +230,21 @@
                 - 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
                 + 0.265 * ((document.getElementById('value9').value === 'Yes' ? 1 : 0) - 0.848) // Symptomatic CNS disease
             ));
-    
+
             // Convert the result to percentage format
             s1 *= 100; 
+
+            // // Check if any of the inputs are NaN
+            // if (isNaN(value3) || isNaN(value4) || isNaN(value5)) {
+            //     document.getElementById('result').textContent = 'Provide valid input for all fields';
+            //     return;
+            // }
+
+            // // Validate if inputs are numeric
+            // if (!isNumber.test('value3') || !isNumber.test('value4') || !isNumber.test('value5')) {
+            //     document.getElementById('result').textContent = 'Provide valid input for all fields.';
+            //     return;
+            // }
     
             document.getElementById('result').innerHTML = "Result: " + s1.toFixed(1) + "%";
         }
