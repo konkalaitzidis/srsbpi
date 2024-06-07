@@ -1,278 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRS-BPI</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-        }
-        .container {
-            max-width: 500px;
-            width: 90%;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10ax;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 50px;
-            color: #810562d3;
-        }
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-        select, input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #810562d3;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            display: block;
-        }
-        button:hover {
-            background-color: #810562d3;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            text-align: center;
-            font-size: 18px;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SRS-BPI</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f5;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: auto;
+		}
+		.container {
+			max-width: 500px;
+			width: 90%;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10ax;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 50px;
+			color: #810562d3;
+		}
+		label {
+			font-weight: bold;
+			margin-bottom: 5px;
+			display: block;
+		}
+		select, input[type="text"], input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			margin: 5px 0 15px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #810562d3;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			width: 100%;
+			display: block;
+		}
+		button:hover {
+			background-color: #810562d3;
+		}
+		#result {
+			margin-top: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			background-color: #f0f0f0;
+			text-align: center;
+			font-size: 18px;
+		}
 
-        .navbar {
-            background-color: #ffffffd3;
-            overflow: hidden;
-        }
+		.navbar {
+			background-color: #ffffffd3;
+			overflow: hidden;
+		}
 
-        .navbar a {
-            float: right;
-            display: block;
-            color: #810562d3;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
+		.navbar a {
+			float: right;
+			display: block;
+			color: #810562d3;
+			text-align: center;
+			padding: 14px 20px;
+			text-decoration: none;
+		}
 
-        .navbar a:hover {
-            background-color: #e7e7e7;
-        }
+		.navbar a:hover {
+			background-color: #e7e7e7;
+		}
 
-        .disclaimer {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff3cd;
-            border: 1px solid #ffeeba;
-            color: #856404;
-            border-radius: 5px;
-            font-size: 14px;
-        }
+		.disclaimer {
+			margin-top: 20px;
+			padding: 15px;
+			background-color: #fff3cd;
+			border: 1px solid #ffeeba;
+			color: #856404;
+			border-radius: 5px;
+			font-size: 14px;
+		}
 
-        footer {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #810562d3; /* Match the navbar color */
-            color: #fff; /* White text for contrast */
-            text-align: center;
-            font-size: 14px;
-            border-radius: 0 0 10px 10px; /* Rounded bottom corners to match the container */
-        }
+		footer {
+			margin-top: 20px;
+			padding: 20px;
+			background-color: #810562d3; /* Match the navbar color */
+			color: #fff; /* White text for contrast */
+			text-align: center;
+			font-size: 14px;
+			border-radius: 0 0 10px 10px; /* Rounded bottom corners to match the container */
+		}
 
-        footer a {
-            color: #ffeeba; /* Light yellow color for links to stand out */
-            text-decoration: none;
-        }
+		footer a {
+			color: #ffeeba; /* Light yellow color for links to stand out */
+			text-decoration: none;
+		}
 
-        footer a:hover {
-            text-decoration: underline; /* Underline on hover for better UX */
-        }
-        .notification {
-            color: rgb(219, 3, 3);
-            font-weight: bold;
-        }
-    </style>
+		footer a:hover {
+			text-decoration: underline; /* Underline on hover for better UX */
+		}
+		.notification {
+			color: rgb(219, 3, 3);
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
 
 
-    <div class="container">
+	<div class="container">
 
-        <!-- Navbar -->
-        <div class="navbar">
-            <!-- <a href="index.html">Home</a> -->
-            <!-- <a href="supp-material.html">Supplementary Material</a> -->
-        </div>
+		<!-- Navbar -->
+		<div class="navbar">
+			<!-- <a href="index.html">Home</a> -->
+			<!-- <a href="supp-material.html">Supplementary Material</a> -->
+		</div>
 
-        <!-- Calculator container -->
-        <h1 class="h1">Stereotactic Radiosurgery-Brain Prognostic Index (SRS-BPI)</h1>
-        <form id="calculator-form">
+		<!-- Calculator container -->
+		<h1 class="h1">Stereotactic Radiosurgery-Brain Prognostic Index (SRS-BPI)</h1>
+		<form id="calculator-form">
 
-            <!-- TODO: Add content within the fields for correct input -->
-        
-            <label for="value1">Disease outside CNS under control:</label>
-            <select id="value1" name="value1" required>
-                <option value="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+			<!-- TODO: Add content within the fields for correct input -->
+		
+			<label for="value1">Disease outside CNS under control:</label>
+			<select id="value1" name="value1" required>
+				<option value="">Select</option>
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
 
-            <label for="value2">Genetic alterations:</label>
-            <select id="value2" name="value2" required>
-                <option value="">Select</option>
-                <option value="EGFR">EGFR</option>
-                <option value="ALK">ALK</option>
-                <option value="KRAS">KRAS</option>
-                <option value="Other">Other alterations</option>
-                <option value="no-alteration">No alterations</option>
-            </select>
+			<label for="value2">Genetic alterations:</label>
+			<select id="value2" name="value2" required>
+				<option value="">Select</option>
+				<option value="EGFR">EGFR</option>
+				<option value="ALK">ALK</option>
+				<option value="KRAS">KRAS</option>
+				<option value="Other">Other alterations</option>
+				<option value="no-alteration">No alterations</option>
+			</select>
 
-            <label for="value3">Performance status (ECOG-PS):</label>
-            <input type="text" id="value3" name="value3" placeholder="Input example: 2" required>
-
-            <label for="value4">Age:</label>
-            <input type="number" id="value4" name="value4" placeholder="Input range: 31 – 93" required>
-            <script>
-                function validateInput(input) {
-                    var value = parseFloat(input.value);
-                    if (isNaN(value) || value < 31 || value > 93) {
-                        document.getElementById('error-message').textContent = 'Please enter a value between 31 and 93.';
-                    } else {
-                        document.getElementById('error-message').textContent = '';
-                    }
-                }
-            </script>
-            
+			<label for="value3">Performance status (ECOG-PS):</label>
+			<input type="text" id="value3" name="value3" placeholder="Input example: 2" required oninput="validatePsInput(this)">
+			<p id="volume-error-message" style="color: red;"></p>
+			<script>
+				function validatePsInput(input) {
+					var value = parseFloat(input.value);
+					if (isNaN(value) || input.value.includes('.') || input.value.includes(',')) {
+						document.getElementById('error-message').textContent = 'Please enter an integer value';
+					} else {
+						document.getElementById('error-message').textContent = '';
+					}
+				}
+			</script>
 
 
-            <label for="value5">Total BM volume during the initial SRS in cm³:</label>
-            <input type="text" id="value5" name="value5" placeholder="Input example: 0.1" required oninput="validateInput(this)">
-            <p id="error-message" style="color: red;"></p>
+			<label for="value4">Age:</label>
+			<input type="number" id="value4" name="value4" placeholder="Input range: 31 – 93" required oninput="validateAgeInput(this)">         
+			<p id="error-message" style="color: red;"></p>
+			<script>
+				function validateAgeInput(input) {
+					var value = parseFloat(input.value);
+					if (isNaN(value) || value < 31 || value > 93) {
+						document.getElementById('error-message').textContent = 'Please enter a value between 31 and 93.';
+					} else {
+						document.getElementById('error-message').textContent = '';
+					}
+				}
+			</script>
 
-            <script>
-            function validateInput(input) {
-                var value = input.value;
-                if (value.includes(',')) {
-                    document.getElementById('error-message').textContent = 'Please use a decimal point (.) instead of a decimal separator (,)';
-                    input.value = '';
-                } else {
-                    document.getElementById('error-message').textContent = '';
-                }
-            }
-            </script>
+			<label for="value5">Total BM volume during the initial SRS in cm³:</label>
+			<input type="text" id="value5" name="value5" placeholder="Input range is 0.015 – 38.25. Example: 0.1" required oninput="validateVolumeInput(this)">
+			<p id="error-message" style="color: red;"></p>
+			<script>
+			function validateVolumeInput(input) {
+				var value = input.value;
+				if (input.value.includes(',')) {
+					document.getElementById('error-message').textContent = 'Please enter a decimal point (.) and not a decimal separator (,)';
+					input.value = '';
+				} else if (isNaN(value)) {
+					document.getElementById('error-message').textContent = 'Please provide a valid number';
+					input.value = '';
+				} else if (value > 38.25) {
+					document.getElementById('error-message').textContent = 'Please provide a number value in the range 0.015 - 38.25';
+				// 	input.value = '';
+				// } else if (value < 0.015) {
+				// 	document.getElementById('error-message').textContent = 'Please provide a number value in the range 0.015 - 38.25';
+				// 	input.value = '';
+				// } 
+				} else {
+					document.getElementById('error-message').textContent = '';
+				}
+			}
+			</script>
 
-            <label for="value6">Extracranial disease:</label>
-            <select id="value6" name="value6" required>
-                <option value="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+			<label for="value6">Extracranial disease:</label>
+			<select id="value6" name="value6" required>
+				<option value="">Select</option>
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
 
-            <label for="value7">BM at diagnosis of primary tumour:</label>
-            <select id="value7" name="value7" required>
-                <option value="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+			<label for="value7">BM at diagnosis of primary tumour:</label>
+			<select id="value7" name="value7" required>
+				<option value="">Select</option>
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
 
-            <label for="value8">Lung adenocarcinoma:</label>
-            <select id="value8" name="value8" required>
-                <option value="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+			<label for="value8">Lung adenocarcinoma:</label>
+			<select id="value8" name="value8" required>
+				<option value="">Select</option>
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
 
-            <label for="value9">Symptomatic CNS disease:</label>
-            <select id="value9" name="value9" required>
-                <option value="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+			<label for="value9">Symptomatic CNS disease:</label>
+			<select id="value9" name="value9" required>
+				<option value="">Select</option>
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
 
-            <!-- Handling invalid input -->
+			<!-- Handling invalid input -->
 
-            <button type="button" onclick="calculateResult()">Calculate</button>
-            <div id="result"></div>
-            <!-- <div id="result" class="notification"></div> -->
-
-
-            <!-- Disclaimer Section -->
-            <div class="disclaimer">
-                Disclaimer: This prognostic score is currently under research and has not yet been published in a peer-reviewed journal. It is provided only for informational purposes.
-            </div>
-
-        </form>
-        
-        
-        <!-- Footer Section -->
-        <footer class="footer">
-            <p>&copy; 2024 Department of Oncology-Pathology, Karolinska Institutet/Thoracic Oncology Center, Karolinska University Hospital, Stockholm, Sweden.</p>
-            <p>The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License.</a></p>
-            <p>Contact: <a href="mailto:mdp2011902@med.uoc.gr">mdp2011902@med.uoc.gr</a></p> 
-        </footer>
-
-    </div>
+			<button type="button" onclick="calculateResult()">Calculate</button>
+			<div id="result"></div>
+			<!-- <div id="result" class="notification"></div> -->
 
 
-    <script>
-        function calculateResult() {
-            var oneYearSurvivalProbability = 0.387;
-    
-            var s1 = Math.pow(oneYearSurvivalProbability, Math.exp(
-                - 0.484 * ((document.getElementById('value1').value === 'Yes' ? 1 : 0) - 0.399) // Disease outside CNS under control
-                - 0.363 * ((document.getElementById('value2').value === 'EGFR' ? 1 : 0) - 0.093) // Mutational status primary tumour
-                - 0.871 * ((document.getElementById('value2').value === 'ALK' ? 1 : 0) - 0.054) // Mutational status primary tumour
-                - 0.210 * ((document.getElementById('value2').value === 'KRAS' ? 1 : 0) - 0.108) // Mutational status primary tumour
-                - 0.131 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.037) // Mutational status primary tumour
-                + 0.596 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.115)
-                + 0.015 * ((parseFloat(document.getElementById('value4').value) - 66.94)) // Age / pws ypologizetai?
-                + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)                // + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
-                + 0.508 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.819) // Extracranial disease
-                - 0.252 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.511) // CNS metastasis at primary tumour
-                - 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
-                + 0.265 * ((document.getElementById('value9').value === 'Yes' ? 1 : 0) - 0.848) // Symptomatic CNS disease
-            ));
+			<!-- Disclaimer Section -->
+			<div class="disclaimer">
+				Disclaimer: This prognostic score is currently under research and has not yet been published in a peer-reviewed journal. It is provided only for informational purposes.
+			</div>
 
-            // Convert the result to percentage format
-            s1 *= 100; 
+		</form>
+		
+		
+		<!-- Footer Section -->
+		<footer class="footer">
+			<p>&copy; 2024 Department of Oncology-Pathology, Karolinska Institutet/Thoracic Oncology Center, Karolinska University Hospital, Stockholm, Sweden.</p>
+			<p>The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License.</a></p>
+			<p>Contact: <a href="mailto:mdp2011902@med.uoc.gr">mdp2011902@med.uoc.gr</a></p> 
+		</footer>
 
-            // // Check if any of the inputs are NaN
-            // if (isNaN(value3) || isNaN(value4) || isNaN(value5)) {
-            //     document.getElementById('result').textContent = 'Provide valid input for all fields';
-            //     return;
-            // }
+	</div>
 
-            // // Validate if inputs are numeric
-            // if (!isNumber.test('value3') || !isNumber.test('value4') || !isNumber.test('value5')) {
-            //     document.getElementById('result').textContent = 'Provide valid input for all fields.';
-            //     return;
-            // }
-    
-            document.getElementById('result').innerHTML = "Result: " + s1.toFixed(1) + "%";
-        }
-    </script>
-    
+
+	<script>
+		function calculateResult() {
+			var oneYearSurvivalProbability = 0.387;
+	
+			var s1 = Math.pow(oneYearSurvivalProbability, Math.exp(
+				- 0.484 * ((document.getElementById('value1').value === 'Yes' ? 1 : 0) - 0.399) // Disease outside CNS under control
+				- 0.363 * ((document.getElementById('value2').value === 'EGFR' ? 1 : 0) - 0.093) // Mutational status primary tumour
+				- 0.871 * ((document.getElementById('value2').value === 'ALK' ? 1 : 0) - 0.054) // Mutational status primary tumour
+				- 0.210 * ((document.getElementById('value2').value === 'KRAS' ? 1 : 0) - 0.108) // Mutational status primary tumour
+				- 0.131 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.037) // Mutational status primary tumour
+				+ 0.596 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.115)
+				+ 0.015 * ((parseFloat(document.getElementById('value4').value) - 66.94)) // Age / pws ypologizetai?
+				+ 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)                // + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
+				+ 0.508 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.819) // Extracranial disease
+				- 0.252 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.511) // CNS metastasis at primary tumour
+				- 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
+				+ 0.265 * ((document.getElementById('value9').value === 'Yes' ? 1 : 0) - 0.848) // Symptomatic CNS disease
+			));
+
+			// Convert the result to percentage format
+			s1 *= 100; 
+
+			// // Check if any of the inputs are NaN
+			// if (isNaN(value3) || isNaN(value4) || isNaN(value5)) {
+			//     document.getElementById('result').textContent = 'Provide valid input for all fields';
+			//     return;
+			// }
+
+			// // Validate if inputs are numeric
+			// if (!isNumber.test('value3') || !isNumber.test('value4') || !isNumber.test('value5')) {
+			//     document.getElementById('result').textContent = 'Provide valid input for all fields.';
+			//     return;
+			// }
+	
+			document.getElementById('result').innerHTML = "Result: " + s1.toFixed(1) + "%";
+		}
+	</script>
+	
 </body>
 </html>
