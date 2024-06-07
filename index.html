@@ -153,10 +153,35 @@
             <input type="text" id="value3" name="value3" placeholder="Input example: 2" required>
 
             <label for="value4">Age:</label>
-            <input type="number" id="value4" name="value4" placeholder="Input example: 65" required>
+            <input type="number" id="value4" name="value4" placeholder="Input range: 31 – 93" required>
+            <script>
+                function validateInput(input) {
+                    var value = parseFloat(input.value);
+                    if (isNaN(value) || value < 31 || value > 93) {
+                        document.getElementById('error-message').textContent = 'Please enter a value between 31 and 93.';
+                    } else {
+                        document.getElementById('error-message').textContent = '';
+                    }
+                }
+            </script>
+            
+
 
             <label for="value5">Total BM volume during the initial SRS in cm³:</label>
-            <input type="text" id="value5" name="value5" placeholder="Input example: 0.1" required>
+            <input type="text" id="value5" name="value5" placeholder="Input example: 0.1" required oninput="validateInput(this)">
+            <p id="error-message" style="color: red;"></p>
+
+            <script>
+            function validateInput(input) {
+                var value = input.value;
+                if (value.includes(',')) {
+                    document.getElementById('error-message').textContent = 'Please use a decimal point (.) instead of a decimal separator (,)';
+                    input.value = '';
+                } else {
+                    document.getElementById('error-message').textContent = '';
+                }
+            }
+            </script>
 
             <label for="value6">Extracranial disease:</label>
             <select id="value6" name="value6" required>
@@ -223,8 +248,7 @@
                 - 0.131 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.037) // Mutational status primary tumour
                 + 0.596 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.115)
                 + 0.015 * ((parseFloat(document.getElementById('value4').value) - 66.94)) // Age / pws ypologizetai?
-                + 0.075 * (Math.log10(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
-                // + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
+                + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)                // + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
                 + 0.508 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.819) // Extracranial disease
                 - 0.252 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.511) // CNS metastasis at primary tumour
                 - 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
