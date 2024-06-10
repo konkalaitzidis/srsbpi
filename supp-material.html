@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplementary Material</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #equation {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        #equation p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #810562d3;
+        }
+
+        .equation {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .navbar {
+            background-color: #ffffffd3;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: 810562d3;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #e7e7e7;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #810562d3; /* Match the navbar color */
+            color: #fff; /* White text for contrast */
+            text-align: center;
+            font-size: 14px;
+            border-radius: 0 0 10px 10px; /* Rounded bottom corners to match the container */
+        }
+
+        footer a {
+            color: #ffeeba; /* Light yellow color for links to stand out */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover for better UX */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="navbar">
+            <a href="index.html">Home</a>
+        </div>
+
+        <!-- Title -->
+        <h1>Supplementary Material</h1>
+
+        <!-- Add your supplementary material content here -->
+        <h2>Predicting one-year survival</h2>
+            
+        <!-- Equation container -->
+        <div id="equation">
+            <p>One-year survival predictions can be obtained for any patient by using the coefficients and 
+                mean values presented in Table 2 of the manuscript and the equation: </p>
+
+            <p>\(\hat{s}(1) = s_0 \cdot (1)^{e^{\left(\sum_{i=1}^{p} \beta_i (x_i - \bar{x}_i)\right)}}\)</p>
+            
+            <p>for variables \(i = 1, . . . , p. S0(1)\) denotes the baseline survival at one year and \(x ̅i\) is the mean value for variable \(i\).</p>
+        </div>
+
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p>&copy; 2024 Department of Oncology-Pathology, Karolinska Institutet/Thoracic Oncology Center, Karolinska University Hospital, Stockholm, Sweden.</p>
+            <p>The website code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License.</a></p>
+            <p>Contact: <a href="mailto:mdp2011902@med.uoc.gr">mdp2011902@med.uoc.gr</a></p> 
+        </footer>
+
+    </div>
+
+</body>
+</html>
