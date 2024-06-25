@@ -180,7 +180,7 @@
 			</script>
 
 			<label for="value5">Total BM volume during the initial SRS in cm³:</label>
-			<input type="text" id="value5" name="value5" placeholder="Input range is 0.015 – 38.25. Example: 0.1" required oninput="validateVolumeInput(this)">
+			<input type="text" id="value5" name="value5" placeholder="Input example: 0.1" required oninput="validateVolumeInput(this)">
 			<p id="error-message" style="color: red;"></p>
 			<script>
 			function validateVolumeInput(input) {
@@ -191,8 +191,8 @@
 				} else if (isNaN(value)) {
 					document.getElementById('error-message').textContent = 'Please provide a valid number';
 					input.value = '';
-				} else if (value < 0.015 || value > 38.25) {
-					document.getElementById('error-message').textContent = 'Please provide a number value in the range 0.015 - 38.25';
+				// } else if (value < 0.015 || value > 38.25) {
+				// 	document.getElementById('error-message').textContent = 'Please provide a number value in the range 0.015 - 38.25';
 				} else {
 					document.getElementById('error-message').textContent = '';
 				}
