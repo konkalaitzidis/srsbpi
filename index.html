@@ -253,21 +253,22 @@
 
 	<script>
 		function calculateResult() {
-			var oneYearSurvivalProbability = 0.387;
+			var oneYearSurvivalProbability = 0.3867774;
 	
 			var s1 = Math.pow(oneYearSurvivalProbability, Math.exp(
-				- 0.484 * ((document.getElementById('value1').value === 'Yes' ? 1 : 0) - 0.399) // Disease outside CNS under control
-				- 0.363 * ((document.getElementById('value2').value === 'EGFR' ? 1 : 0) - 0.093) // Mutational status primary tumour
-				- 0.871 * ((document.getElementById('value2').value === 'ALK' ? 1 : 0) - 0.054) // Mutational status primary tumour
-				- 0.210 * ((document.getElementById('value2').value === 'KRAS' ? 1 : 0) - 0.108) // Mutational status primary tumour
-				- 0.131 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.037) // Mutational status primary tumour
-				+ 0.596 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.115)
-				+ 0.015 * ((parseFloat(document.getElementById('value4').value) - 66.94)) // Age / pws ypologizetai?
-				+ 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)                // + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
-				+ 0.508 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.819) // Extracranial disease
-				- 0.252 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.511) // CNS metastasis at primary tumour
-				- 0.219 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.741) // Lungadenocarcinoma
-				+ 0.265 * ((document.getElementById('value9').value === 'Yes' ? 1 : 0) - 0.848) // Symptomatic CNS disease
+				- 0.48364459 * ((document.getElementById('value1').value === 'Yes' ? 1 : 0) - 0.39853301) // Disease outside CNS under control
+				- 0.36302518 * ((document.getElementById('value2').value === 'EGFR' ? 1 : 0) - 0.09290954) // Mutational status primary tumour
+				- 0.87133737 * ((document.getElementById('value2').value === 'ALK' ? 1 : 0) - 0.05378973) // Mutational status primary tumour
+				- 0.13096763 * ((document.getElementById('value2').value === 'Other' ? 1 : 0) - 0.03667482) // Mutational status primary tumour
+				- 0.20986732 * ((document.getElementById('value2').value === 'KRAS' ? 1 : 0) - 0.10757946) // Mutational status primary tumour
+				+ 0 * ((document.getElementById('value2').value === 'No alterations' ? 1 : 0) - 0.037) // Mutational status primary tumour
+				+ 0.59625169 * (((document.getElementById('value3').value === '2' || document.getElementById('value3').value === '3' || document.getElementById('value3').value === '4') ? 1 : 0) - 0.11491443)
+				+ 0.01538005 * ((parseFloat(document.getElementById('value4').value) - 66.93608725)) // Age / pws ypologizetai?
+				+ 0.07483959 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.78189923) // log(Volume of the first treated SRS)                // + 0.075 * (Math.log(parseFloat(document.getElementById('value5').value)) - 0.782) // log(Volume of the first treated SRS)
+				+ 0.50805556 * ((document.getElementById('value6').value === 'Yes' ? 1 : 0) - 0.81907090) // Extracranial disease
+				- 0.25249098 * ((document.getElementById('value7').value === 'Yes' ? 1 : 0) - 0.51100244) // CNS metastasis at primary tumour
+				- 0.21931744 * ((document.getElementById('value8').value === 'Yes' ? 1 : 0) - 0.74083130) // Lungadenocarcinoma
+				+ 0.26501252 * ((document.getElementById('value9').value === 'Yes' ? 1 : 0) - 0.84841076) // Symptomatic CNS disease
 			));
 
 			// Convert the result to percentage format
