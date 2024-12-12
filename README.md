@@ -14,4 +14,4 @@ To create a new and reliable prognostic tool that enhances the decision-making o
 
 This project is licensed under the [MIT License](LICENSE).  
 
-If something isn't working properly on the website or if you have encountered any other issues, please inform the developer Konstantinos Kalaitzidis via email at kon.kalaitzids@gmail.com
+If something isn't working properly on the website or if you have encountered any other issues, please inform the developer Konstantinos Kalaitzidis via email at [kon.kalaitzidis-at-gmail.com](mailto:kon.kalaitzids@gmail.com)
