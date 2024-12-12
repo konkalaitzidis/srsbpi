@@ -10,7 +10,7 @@ To create a new and reliable prognostic tool that enhances the decision-making o
   - Department of Oncology-Pathology, Karolinska Institutet.  
   - Thoracic Oncology Center, Karolinska University Hospital.   -->
 
-## License  
+## Licenseee
 
 This project is licensed under the [MIT License](LICENSE).  
 
