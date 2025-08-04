@@ -1,5 +1,5 @@
 # SRSBPI: A Brain Prognostic Index for Lung Cancer Patients 🫁 🧠
-Welcome to the repository for [**SRSBPI**](https://srs-bpi.org/), a novel brain prognostic index specifically developed to aid in therapeutic strategies for lung cancer patients with brain metastases. This webtool is developed for research conducted at the [**Department of Oncology-Pathology**](https://ki.se/en/onkpat) at Karolinska Institutet and the **Thoracic Oncology Center** at Karolinska University Hospital. The associated research paper is currently under review.
+Welcome to the repository for [**SRSBPI**](https://srs-bpi.org/), a novel brain prognostic index specifically developed to aid in therapeutic strategies for lung cancer patients with brain metastases. This webtool is developed for research conducted at the [**Department of Oncology-Pathology**](https://ki.se/en/onkpat) at Karolinska Institutet and the **Thoracic Oncology Center** at Karolinska University Hospital.  The associated research paper has been published at [**Elsevier, Computers in Biology and Medicine**](https://www.sciencedirect.com/science/article/pii/S0010482525011412) [IF 7.0].
 
 <!-- ---
 
